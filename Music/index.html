@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="./pic/favourite.png">
+    <link rel="stylesheet" href="./style.css">
+    <title>MicoMusic</title>
+</head>
+
+<body onload="Load()" onclick="ifClick()">
+    <div id="player-body" style="position: relative">
+
+        <!--顶部-->
+        <div id="header">
+            <div id="logo"><img src="./pic/d/1.jpg" style="height:40px;width: 40px;vertical-align: middle;" draggable="false" />YunMusic</div>
+            <div>
+                <input id="searchbox" type="text" value="搜索音乐，歌手，专辑"></input>
+                <input type="button" value="搜索" id="search">
+                <input type="button" value="返回" id="back">
+                <img id="user" src="./pic/user.png" onmouseover="userMouseOver()" onmouseout="userMouseOut()" onclick="showUserPage()" draggable="false"
+                />
+                <img id="mail" src="./pic/mail.png" onmouseover="mailMouseOver()" onmouseout="mailMouseOut()" onclick="showMailPage()" draggable="false"
+                />
+                <img id="skin" src="./pic/skin.png" onmouseover="skinMouseOver()" onmouseout="skinMouseOut()" onclick="chSkin()" draggable="false"
+                />
+            </div>
+        </div>
+
+        <!--抹了脖子的变红分割线-->
+        <div id="redline"></div>
+
+        <!--中间-->
+
+        <!--隐藏播放页-->
+        <div id="hider">
+            <div id="playPart">
+                <img id="ct" src="./pic/ct.png" draggable="false" />
+                <img id="jp" src="./pic/jp.png" draggable="false" />
+            </div>
+            <div id="lrcPart">
+                <span id="lrcSpan"></span>
+            </div>
+            <div id="ssPart">
+                <img id="ssPic" src="./pic/ss.png" onclick="hideHider()" draggable="false" />
+            </div>
+        </div>
+
+        <!--user页-->
+        <div id="userPage" onclick="event.stopPropagation()">
+            <p>当前用户：Admin</p>
+            <p>用户等级：88</p>
+            <br />
+            <br />
+            <br />
+            <p><a>注销</a></p>
+
+        </div>
+
+        <!--email页-->
+        <div id="mailPage" onclick="event.stopPropagation()">
+            <p>您还没有未读邮件。</p>
+
+        </div>
+
+        <img id="pointPic" src="./pic/point.png" />
+
+        <!--推荐首页-->
+        <div id="middle">
+            <div id="list">
+
+                <!--菜单-->
+                <div id="top">
+                    <ul>推荐
+                        <li>发现音乐</li>
+                        <li>私人FM</li>
+                        <li>MV</li>
+                        <li>朋友</li>
+                    </ul>
+                    <ul>我的音乐
+                        <li>本地音乐</li>
+                        <li>下载管理</li>
+                        <li>音乐云盘</li>
+                        <li>我的歌手</li>
+                    </ul>
+                    <ul>我的歌单
+                        <li>我喜欢的音乐</li>
+                        <li>小众华语</li>
+                        <li>民谣听史</li>
+                        <li>华语精选</li>
+                    </ul>
+                    <ul>收藏的歌单
+                        <li>宣传片背景音乐</li>
+                        <li>自然声效</li>
+                        <li>极限运动BGM</li>
+                        <li>2017第一季TOP50</li>
+                        <li>最具人气动漫歌曲</li>
+                        <li>你就不要想起我</li>
+                        <li>优秀影视主题曲</li>
+                        <li>灵魂插曲</li>
+                        <li>4月新热电音</li>
+                        <li>岁月催人老</li>
+                        <li>深情华语男声</li>
+                        <li>Fighting！跑步歌单</li>
+                    </ul>
+
+                </div>
+
+                <!--我是一条分呀分割线-->
+                <hr />
+
+                <!--歌曲信息-->
+                <div id="bottom">
+
+                    <!--专辑图片-->
+                    <div id="bottom-left">
+                        <img id="songpic" src="./pic/cd.png" onmouseover="onZk()" onmouseout="outZk()" draggable="false" />
+                        <img id="sszk" src="./pic/zk.png" onmouseover="onZk()" onmouseout="outZk()" onclick="showHider()" draggable="false" />
+                    </div>
+
+                    <!--歌曲信息-->
+                    <div id="bottom-middle">
+                        <br />
+                        <span id="songname">成都</span>
+                        <br />
+                        <span id="singername">赵雷</span>
+                        <br />
+                    </div>
+
+                    <!--喜欢，分享-->
+                    <div id="bottom-right">
+                        <span id="like" onclick="ilike()">❤</span>
+                        <br />
+                    </div>
+                </div>
+            </div>
+              
+            <!--歌单区-->
+            <div id="content">
+                <!--导航条-->
+                <div id="content1">
+                <div id="nav">
+                    <ul>
+                        <li>个性推荐</li>
+                        <li>歌单</li>
+                        <li>主播电台</li>
+                        <li>排行榜</li>
+                        <li>歌手</li>
+                        <li>最新音乐</li>
+                    </ul>
+                </div>
+
+                <!--我是一条分呀分割线-->
+                <hr />
+
+                <!--轮播广告-->
+                <div id="ads">
+                    <img id="ads1" src="./pic/a/a (1).png" draggable="false" />
+                    <img id="ads2" src="./pic/a/a (2).png" draggable="false" />
+                    <img id="ads3" src="./pic/a/a (3).png" draggable="false" />
+                </div>
+
+                <!--推荐信息-->
+                <div id="detail">
+                    <ul>
+                        推荐歌单
+                        <span class="more" style="float: right;font-size: 11px;">更多></span><br />
+                        <hr />
+                        <br />
+                        <li class="tj"><span><img src="./pic/c/c (1).png"/><br />那些思想与灵魂纯粹的<br />音乐诗人</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (2).png"/><br />唯你最深得我意，也只<br />你最不识抬举</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (3).png"/><br />沉浸在音乐的深处无法<br />自拔</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (4).png"/><br />那些经验嗨翻天的华语<br />现场</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (5).png"/><br />听民谣的人究竟有多少<br />故事</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (6).png"/><br />四月清和，何不赏一曲<br />清凉电子</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (7).png"/><br />尚未解开的谜题，一直<br />深埋心底</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (8).png"/><br />总有一句词，唱出你最<br />深的内心</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (9).png"/><br />听这些歌，打开了多少<br />人的情绪阀门</span></li>
+                        <li class="tj"><span><img src="./pic/c/c (10).png"/><br />就像在柔软彩虹里的一<br />场梦</span></li>
+                        <br />
+                        <br /> 独家放送
+                        <span class="more" style="float: right;font-size: 11px;">更多></span><br />
+                        <hr />
+                        <br />
+                        <li class="dj"><span><img src="./pic/b/b (1).png"/><br />福利优选：梦醒时分，还有耳机与你为伴</span></li>
+                        <li class="dj"><span><img src="./pic/b/b (2).png"/><br />热点专栏 第88期 这些动画里有我的童年</span></li>
+                        <li class="dj"><span><img src="./pic/b/b (3).png"/><br />热门歌曲榜 在深海汪洋中抬头望见天空</span></li>
+                        <br />
+                        <br /> 最新歌曲
+                        <span class="more" style="float: right;font-size: 11px;">更多></span><br />
+                        <hr />
+                        <br />
+                        <table style="border: solid 1px #23262c;font-size: 14px;" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">01</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="border-right: solid 1px #23262c;width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    Sign of the Times<br />Harry Styles
+                                </td>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">06</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    Don't Give Me Those Eyes<br />James Blunt
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 40px;height: 60px;background-color: #1a1c20;text-align: center;">02</td>
+                                <td style="width: 60px;height: 60px;background-color: #1a1c20;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="border-right: solid 1px #23262c;width: 300px;height: 60px;background-color: #1a1c20;padding-left: 10px;">
+                                    明月天涯<br />五音Jw
+                                </td>
+                                <td style="width: 40px;height: 60px;background-color: #1a1c20;text-align: center;">07</td>
+                                <td style="width: 60px;height: 60px;background-color: #1a1c20;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="width: 300px;height: 60px;background-color: #1a1c20;padding-left: 10px;">
+                                    The Bombings<br />Harry Gregson-williams
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">03</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="border-right: solid 1px #23262c;width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    嘿，抬头！<br />贰佰
+                                </td>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">08</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    沐雪沉剑<br />五音Jw
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 40px;height: 60px;background-color: #1a1c20;text-align: center;">04</td>
+                                <td style="width: 60px;height: 60px;background-color: #1a1c20;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="border-right: solid 1px #23262c;width: 300px;height: 60px;background-color: #1a1c20;padding-left: 10px;">
+                                    渗透<br />窦唯/译乐队
+                                </td>
+                                <td style="width: 40px;height: 60px;background-color: #1a1c20;text-align: center;">09</td>
+                                <td style="width: 60px;height: 60px;background-color: #1a1c20;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="width: 300px;height: 60px;background-color: #1a1c20;padding-left: 10px;">
+                                    给自己的信<br />好妹妹乐队
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">05</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="border-right: solid 1px #23262c;width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    有约<br />Twins
+                                </td>
+                                <td style="width: 40px;height: 60px;background-color: #16181c;text-align: center;">10</td>
+                                <td style="width: 60px;height: 60px;background-color: #16181c;"><img style="width: 60px;height: 60px;" src="./pic/c/c (7).png" draggable="false" /></td>
+                                <td style="width: 300px;height: 60px;background-color: #16181c;padding-left: 10px;">
+                                    第七感<br />张靓颖
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br /> 推荐MV
+                        <span class="more" style="float: right;font-size: 11px;">更多></span><br />
+                        <hr />
+                        <br />
+                        <li class="dj"><span><img src="./pic/b/b (4).png"/><br />动漫背景乐<br />Alan</span></li>
+                        <li class="dj"><span><img src="./pic/b/b (5).png"/><br />感觉舞动<br />佚名</span></li>
+                        <li class="dj"><span><img src="./pic/b/b (6).png"/><br />我是你的风<br />诺一</span></li>
+                        <br />
+                        <br />
+                    </ul>
+                </div>
+            </div>
+            <div id="content2">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>                                  
+            </div>
+        </div>
+    </div>
+        <!--底部-->
+        <div id="footer">
+
+            <!--控制按钮-->
+            <div id="control-left">
+                <img id="up" src="./pic/up.png" onmouseover="upMouseOver()" onmouseout="upMouseOut()" onclick="upSong()" draggable="false"
+                />
+                <img id="play" src="./pic/play.png" onmouseover="playMouseOver()" onmouseout="playMouseOut()" onclick="iplay()" draggable="false"
+                />
+                <img id="down" src="./pic/down.png" onmouseover="downMouseOver()" onmouseout="downMouseOut()" onclick="downSong()" draggable="false"
+                />
+            </div>
+
+            <!--进度条-->
+            <div id="barpart">
+                <div style="float: left;">
+                    <span id="starttime">01:20</span>
+                </div>
+                <div id="bar" style="float: left;">
+                    <div id="redbar"></div>
+                    <div id="slider"></div>
+                </div>
+                <div style="float: left;">
+                    <span id="endtime">05:28</span>
+                </div>
+            </div>
+
+            <!--音量条-->
+            <div id="control-right">
+                <img id="volume" src="./pic/volume.png" onmouseover="volMouseOver()" onmouseout="volMouseOut()" draggable="false" />
+                <div id="volbar" style="float:left" onmouseover="volbarMouseOver()" onmouseout="volbarMouseOut()">
+                    <div id="volredbar"></div>
+                    <div id="volslider" onmousedown="chVol()"></div>
+                </div>
+            </div>
+        </div>
+
+        <audio id="music" style="display:none;" preload="auto">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!--脚本加载-->
+        <script src="./action.js"></script>
+        <script src="./lrc.js"></script>
+        <script src="./ajax.js"></script>
+    </div>
+</body>
+
+</html>
